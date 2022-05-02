@@ -6,14 +6,14 @@ public class Profession {
     private String education;
     private String birthday;
 
-    public Profession() {
-    }
-
     public Profession(String namef, String surn, String educ, String birthd) {
         this.name = namef;
         this.surname = surn;
         this.education = educ;
         this.birthday = birthd;
+    }
+
+    public Profession() {
     }
 
     public String getName() {

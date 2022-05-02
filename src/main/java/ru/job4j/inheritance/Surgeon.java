@@ -1,7 +1,7 @@
 package ru.job4j.inheritance;
 
 public class Surgeon extends Doctor {
-    private String workingTool = "scalpel";
+    private String workingTool;
 
     public Surgeon(String namef, String surn, String educ, String birthd) {
         super(namef, surn, educ, birthd);
@@ -15,7 +15,7 @@ public class Surgeon extends Doctor {
     public Surgeon() {
     }
 
-    public String favoriteTool() {
+    public String favoriteTool(String workingTool) {
         return workingTool;
     }
 
@@ -25,6 +25,6 @@ public class Surgeon extends Doctor {
         System.out.println(olga.getSurname());
         System.out.println(olga.getEducation());
         System.out.println(olga.getBirthday());
-        System.out.println(olga.favoriteTool());
+        System.out.println(olga.favoriteTool("scalpel"));
     }
 }

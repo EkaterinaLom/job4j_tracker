@@ -1,7 +1,7 @@
 package ru.job4j.inheritance;
 
 public class Doctor extends Profession {
-    private String profile = "stomatologist";
+    private String profile;
 
     public Doctor(String namef, String surn, String educ, String birthd) {
         super(namef, surn, educ, birthd);
@@ -15,7 +15,7 @@ public class Doctor extends Profession {
     public Doctor() {
     }
 
-    public String profileDoc() {
+    public String profileDoc(String profile) {
         return profile;
     }
 
@@ -25,6 +25,6 @@ public class Doctor extends Profession {
         System.out.println(egor.getSurname());
         System.out.println(egor.getEducation());
         System.out.println(egor.getBirthday());
-        System.out.println(egor.profileDoc());
+        System.out.println(egor.profileDoc("stomatologist"));
     }
 }
