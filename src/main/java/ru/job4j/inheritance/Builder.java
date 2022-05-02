@@ -1,18 +1,12 @@
 package ru.job4j.inheritance;
 
 public class Builder extends Engineer {
-    private String wageSys = "price-work";
 
-    public Builder(String namef, String surn, String educ, String birthd) {
-        super(namef, surn, educ, birthd);
-    }
+    private String wageSys;
 
-    public Builder(String wageS) {
-        super();
+    public Builder(String namef, String surn, String educ, String birthd, String wageS) {
+        super(namef, surn, educ, birthd, wageS);
         this.wageSys = wageS;
-    }
-
-    public Builder() {
     }
 
     public String priceWork() {
@@ -20,7 +14,7 @@ public class Builder extends Engineer {
     }
 
     public static void main(String[] args) {
-        Builder kate = new Builder("Kate", "Holms", "secondary", "05.06.87");
+        Builder kate = new Builder("Kate", "Holms", "secondary", "05.06.87", "price-work");
         System.out.println(kate.getName());
         System.out.println(kate.getSurname());
         System.out.println(kate.getEducation());

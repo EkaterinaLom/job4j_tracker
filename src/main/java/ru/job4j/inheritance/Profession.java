@@ -1,6 +1,7 @@
 package ru.job4j.inheritance;
 
 public class Profession {
+
     private String name;
     private String surname;
     private String education;
@@ -11,9 +12,6 @@ public class Profession {
         this.surname = surn;
         this.education = educ;
         this.birthday = birthd;
-    }
-
-    public Profession() {
     }
 
     public String getName() {
