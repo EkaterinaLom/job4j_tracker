@@ -6,7 +6,6 @@ public class StartUI {
         boolean run = true;
         while (run) {
             showMenu();
-            System.out.print("Select: ");
             int select = input.askInt("Enter number menu: ");
             if (select == 0) {
                 System.out.println("=== Create a new Item ===");
