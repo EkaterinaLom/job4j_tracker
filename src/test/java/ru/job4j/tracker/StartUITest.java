@@ -23,7 +23,7 @@ public class StartUITest {
         Item item = new Item("new item");
         tracker.add(item);
         String[] answers = {
-                String.valueOf(item.getId()), /* id сохраненной заявки в объект tracker. */
+                String.valueOf(item.getId()),
                 "edited item"
         };
         StartUI.editItem(new StubInput(answers), tracker);
@@ -32,15 +32,11 @@ public class StartUITest {
     }
 
     @Test
-    public void deleteItem() {
+    public void whenDeleteItem() {
         Tracker tracker = new Tracker();
         Item item = new Item("new item");
         tracker.add(item);
-        String[] answers = {
-                String.valueOf(item.getId()), /* id сохраненной заявки в объект tracker. */
-                "edited item"
-        };
-        StartUI.deleteItem(new StubInput(answers), tracker);
+        tracker.delete(item.getId());
         Item deleted = tracker.findById(item.getId());
         assertNull(deleted);
     }
