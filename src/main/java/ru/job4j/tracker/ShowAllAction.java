@@ -18,7 +18,7 @@ public class ShowAllAction implements UserAction {
         Item[] items = tracker.findAll();
         if (items.length > 0) {
             for (Item item : items) {
-                out.println(item.getId() + " " + item.getName());
+                out.println(item);
             }
         } else {
             out.println("Хранилище еще не содержит заявок");
