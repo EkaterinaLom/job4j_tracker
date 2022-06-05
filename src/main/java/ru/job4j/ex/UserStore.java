@@ -20,7 +20,7 @@ public class UserStore {
         if (!user.isValid() || user.getUsername().length() < 3) {
             throw new UserInvalidException("User not valid");
         }
-        return false;
+        return true;
     }
 
     public static void main(String[] args) {
