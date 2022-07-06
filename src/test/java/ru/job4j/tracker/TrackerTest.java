@@ -1,6 +1,10 @@
 package ru.job4j.tracker;
 
 import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.IsNull.nullValue;
@@ -10,9 +14,9 @@ public class TrackerTest {
     public void whenTestFindById() {
         Tracker tracker = new Tracker();
         Item bug = new Item("Bug");
-        Item item = tracker.add(bug);
-        Item result = tracker.findById(item.getId());
-        assertThat(result.getName(), is(item.getName()));
+        tracker.add(bug);
+        Item rsl = tracker.findById(bug.getId());
+        assertThat(rsl.getName(), is(bug.getName()));
     }
 
     @Test
@@ -22,8 +26,8 @@ public class TrackerTest {
         Item second = new Item("Second");
         tracker.add(first);
         tracker.add(second);
-        Item result = tracker.findAll()[0];
-        assertThat(result.getName(), is(first.getName()));
+        List<Item> rsl = tracker.findAll();
+        assertThat(rsl.size(), is(2));
     }
 
     @Test
@@ -36,8 +40,8 @@ public class TrackerTest {
         tracker.add(new Item("First"));
         tracker.add(new Item("Second"));
         tracker.add(new Item("First"));
-        Item[] result = tracker.findByName(first.getName());
-        assertThat(result.length, is(3));
+        List<Item> rsl = tracker.findByName(first.getName());
+        assertThat(rsl.size(), is(3));
     }
 
     @Test
@@ -50,16 +54,16 @@ public class TrackerTest {
         tracker.add(new Item("First"));
         tracker.add(new Item("Second"));
         tracker.add(new Item("First"));
-        Item[] result = tracker.findByName(second.getName());
-        assertThat(result[1].getName(), is(second.getName()));
+        List<Item> rsl = tracker.findByName(second.getName());
+        assertThat(rsl.get(1).getName(), is(second.getName()));
     }
 
     @Test
     public void whenReplace() {
         Tracker tracker = new Tracker();
         Item bug = new Item();
-        bug.setName("Bug");
         tracker.add(bug);
+        bug.setName("Bug");
         int id = bug.getId();
         Item bugWithDesc = new Item();
         bugWithDesc.setName("Bug with description");
