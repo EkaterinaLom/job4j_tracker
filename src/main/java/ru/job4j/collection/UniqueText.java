@@ -14,10 +14,9 @@ public class UniqueText {
         for (String t : text) {
             if (check.contains(t)) {
                 check.add(t);
-            } else {
-                rsl = false;
                 break;
             }
+            rsl = false;
         }
         return rsl;
     }
