@@ -28,15 +28,19 @@ public class AnalyzeByMap {
         return averPup;
     }
 
-    public static List<Label> averageScoreBySubject(List<Pupil> pupils) {
+    private static Map<String, Double> scoreSubject(List<Pupil> pupils) {
         var map = new LinkedHashMap<String, Double>();
         for (var pupil : pupils) {
             for (var subject : pupil.subjects()) {
-                var sum = map.get(subject.name());
-                var newSum = (sum == null) ? subject.score() : sum + subject.score();
-                map.put(subject.name(), newSum);
+                map.putIfAbsent(subject.name(), 0.0);
+                map.put(subject.name(), map.get(subject.name()) + subject.score());
             }
         }
+        return map;
+    }
+
+    public static List<Label> averageScoreBySubject(List<Pupil> pupils) {
+        var map = scoreSubject(pupils);
         var averSub = new ArrayList<Label>();
         for (String key : map.keySet()) {
             Double value = map.get(key);
@@ -56,14 +60,7 @@ public class AnalyzeByMap {
     }
 
     public static Label bestSubject(List<Pupil> pupils) {
-        var map = new LinkedHashMap<String, Double>();
-        for (var pupil : pupils) {
-            for (var subject : pupil.subjects()) {
-                var sum = map.get(subject.name());
-                var newSum = (sum == null) ? subject.score() : sum + subject.score();
-                map.put(subject.name(), newSum);
-            }
-        }
+        var map = scoreSubject(pupils);
         var bestSub = new ArrayList<Label>();
         for (String key : map.keySet()) {
             Double value = map.get(key);
