@@ -25,12 +25,7 @@ public class AttachmentSort {
             public int compare(Object o1, Object o2) {
                 Attachment left = (Attachment) o1;
                 Attachment right = (Attachment) o2;
-                int rsl = 0;
-                int lenght = Math.min(left.getName().length(), right.getName().length());
-                for (int i = 0; i < lenght; i++) {
-                    rsl = Character.compare(left.getName().charAt(i), right.getName().charAt(i));
-                }
-                return rsl;
+                return left.getName().compareTo(right.getName());
             }
         };
         attachments.sort(comparator1);
