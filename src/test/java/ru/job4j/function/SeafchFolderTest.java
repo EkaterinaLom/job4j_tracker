@@ -7,8 +7,6 @@ import java.util.function.Predicate;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-
-
 public class SeafchFolderTest {
     @Test
     public void whenFilterSize() {
