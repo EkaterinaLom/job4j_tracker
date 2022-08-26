@@ -1,10 +1,10 @@
 package ru.job4j.search;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class PhoneDictionaryTest {
 
@@ -15,17 +15,6 @@ public class PhoneDictionaryTest {
                 new Person("Petr", "Arsentev", "534872", "Bryansk")
         );
         ArrayList<Person> persons = phones.find("Petr");
-        assertThat(persons.get(0).getSurname(), is("Arsentev"));
-    }
-
-    @Test
-    public void whenNotFind() {
-        PhoneDictionary phones = new PhoneDictionary();
-        phones.add(
-                new Person("Petr", "Arsentev", "534872", "Bryansk")
-        );
-        ArrayList<Person> persons = phones.find("Vasya");
-        ArrayList<Person> empty = new ArrayList<>();
-        assertThat(persons, is(empty));
+        assertThat(persons.get(0).getSurname()).isEqualTo("Arsentev");
     }
 }
