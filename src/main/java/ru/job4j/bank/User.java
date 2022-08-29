@@ -58,11 +58,6 @@ public class User {
         this.username = username;
     }
 
-    /**
-     * Переопределение equals, для корректного сравнения объектов.
-     * @param o принимает на входе объект
-     * @return возвращает результат сравнения (true/false).
-     */
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -75,10 +70,6 @@ public class User {
         return Objects.equals(passport, user.passport);
     }
 
-    /**
-     * Переопределение hashCode, для корректного сравнения объектов
-     * @return возвращает число, которому равен входящий объект.
-     */
     @Override
     public int hashCode() {
         return Objects.hash(passport);

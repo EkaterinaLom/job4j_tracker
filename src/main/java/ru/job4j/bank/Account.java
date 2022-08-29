@@ -59,11 +59,6 @@ public class Account {
         this.balance = balance;
     }
 
-    /**
-     * Переопределение equals, для корректного сравнения объектов.
-     * @param o принимает на входе объект.
-     * @return возвращает результат сравнения (true/false).
-     */
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -76,11 +71,6 @@ public class Account {
         return Objects.equals(requisite, account.requisite);
     }
 
-    /**
-     * Переопределение hashCode, для корректного сравнения объектов
-     * коллекции HashMap.
-     * @return возвращает число, которому равен входящий объект.
-     */
     @Override
     public int hashCode() {
         return Objects.hash(requisite);
