@@ -45,7 +45,7 @@ public class Analyze {
                         .stream()
                         .mapToInt(Subject::score)
                         .sum()))
-                .max((s1, s2) -> (int) (s1.score() - s2.score()))
+                .max(Comparator.comparingDouble(Tuple::score))
                 .orElse(null);
     }
 }
