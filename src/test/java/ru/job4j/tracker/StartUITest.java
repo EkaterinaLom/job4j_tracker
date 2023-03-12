@@ -81,29 +81,29 @@ public class StartUITest {
         ));
     }
 
-//    @Test
-//    public void whenFindAllItem() throws SQLException {
-//        Output out = new StubOutput();
-//        MemTracker tracker = new MemTracker();
-//        Item one = tracker.add(new Item("test2"));
-//        Input in = new StubInput(
-//                new String[]{"0", "1"}
-//        );
-//        List<UserAction> actions = List.of(new ShowAllAction(out),
-//                new ExitAction(out));
-//        new StartUI(out).init(in, tracker, actions);
-//        String ln = System.lineSeparator();
-//        assertThat(out.toString(), is(
-//                "Menu." + ln
-//                        + "0. Show all Item" + ln
-//                        + "1. Exit" + ln
-//                        + "=== Show all items ===" + ln
-//                        + one.get(0) + ln
-//                        + "Menu." + ln
-//                        + "0. Show all Item" + ln
-//                        + "1. Exit" + ln
-//                        + "=== Exit ===" + ln));
-//    }
+    @Test
+    public void whenFindAllItem() throws SQLException {
+        Output out = new StubOutput();
+        MemTracker tracker = new MemTracker();
+        Item one = tracker.add(new Item("test2"));
+        Input in = new StubInput(
+                new String[]{"0", "1"}
+        );
+        List<UserAction> actions = List.of(new ShowAllAction(out),
+                new ExitAction(out));
+        new StartUI(out).init(in, tracker, actions);
+        String ln = System.lineSeparator();
+        assertThat(out.toString(), is(
+                "Menu." + ln
+                        + "0. Show all Item" + ln
+                        + "1. Exit" + ln
+                        + "=== Show all items ===" + ln
+                        + one + ln
+                        + "Menu." + ln
+                        + "0. Show all Item" + ln
+                        + "1. Exit" + ln
+                        + "=== Exit ===" + ln));
+    }
 
     @Test
     public void findByNameItem() throws SQLException {
