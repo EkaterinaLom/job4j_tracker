@@ -1,7 +1,5 @@
 package ru.job4j.tracker;
 
-import ru.job4j.bank.User;
-
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
@@ -28,6 +26,9 @@ public class Item {
     public Item(int id, String name) {
         this.id = id;
         this.name = name;
+    }
+
+    public Item(int id, String name, LocalDateTime created) {
     }
 
     @Override
@@ -74,5 +75,9 @@ public class Item {
 
     public LocalDateTime getCreated() {
         return created;
+    }
+
+    public void setCreated(LocalDateTime created) {
+        this.created = created;
     }
 }
